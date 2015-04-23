@@ -9,6 +9,7 @@ module BlinkToRadioC {
 	uses interface AMPacket;
 	uses interface AMSend;
 	uses interface SplitControl as AMControl;
+	uses interface Receive;
 }
 implementation {
 	bool busy = FALSE;
@@ -45,10 +46,18 @@ implementation {
 	}
 	
 	event void AMSend.sendDone(message_t* msg, error_t error) {
-    if (&pkt == msg) {
-      busy = FALSE;
-    }
-  }
-  
+		if (&pkt == msg) {
+			busy = FALSE;
+		}
+	}
+	event message_t* Receive.receive(message_t* msg, void* payload, uint8_t len) {
+		if (len == sizeof(BlinkToRadioMsg)) {
+			BlinkToRadioMsg* btrpkt = (BlinkToRadioMsg*)payload;
+			call Leds.set(btrpkt->counter);
+		}
+		return msg;
+	}
+	
+	
  
 }
