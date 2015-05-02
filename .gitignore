@@ -1,6 +1,10 @@
 MoteSender/src/build/
 MoteSender/build/
 MoteSender/.cache/
+MiniProject/src/build/
+MiniProject/build/
+MiniProject/.cache/
+
 # Object files
 *.o
 *.ko
