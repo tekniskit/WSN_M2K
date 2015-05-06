@@ -33,8 +33,15 @@
 #    Include TinyOS directory from the TinyOS-Contrib directory 
 #      PFLAGS+= -I${TOSDIR}/../contrib/xbow/beta/TASKApp
 # ----------------------------------------------------------------
+
+# CHANNEL
 CFLAGS += -DCC2420_DEF_CHANNEL=12
 
+# TRANSMIT POWER
+CFLAGS += -DCC2420_DEF_RFPOWER=31
+
+# DATA LENGHT
+CFLAGS += -DTOSH_DATA_LENGTH=32
 
 # The environment variable COMPONENT is set automatically by the
 # plugin.

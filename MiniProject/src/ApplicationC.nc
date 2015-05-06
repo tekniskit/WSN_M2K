@@ -9,7 +9,6 @@ module ApplicationC {
 	uses interface AMPacket;
 	uses interface AMSend;
 	uses interface SplitControl as AMControl;
-	uses interface Receive;
 	uses interface Get<button_state_t>;
 	uses interface Notify<button_state_t>;
 	uses interface Timer<TMilli> as Timer0;
@@ -51,20 +50,7 @@ implementation {
 			busy = FALSE;
 		}
 	}
-	event message_t* Receive.receive(message_t* msg, void* payload, uint8_t len) {
-		call Leds.led2Toggle();
-		if (len == sizeof(ApplicationMsg)) {
-			ApplicationMsg* message = (ApplicationMsg*)payload;
-//			if(message->nodeid == 1){
-//				call Leds.led1Toggle();
-//			}
-//			else if (message->nodeid == 2){
-//				call Leds.led2Toggle();
-//			}
-			call Leds.led1Toggle();
-		}
-		return msg;
-	}
+
 	
 	event void Timer0.fired()
   {
@@ -75,6 +61,10 @@ implementation {
 					msg->nodeid = TOS_NODE_ID;
 					msg->size = sizeof(ApplicationMsg);
 					msg->test = 23;
+					msg->test1 = 24;
+					msg->test2 = 25;
+					msg->test3 = 26;
+					msg->test4 = 27;
 				}			
 				if (call AMSend.send(AM_BROADCAST_ADDR, &pkt, sizeof(ApplicationMsg)) == SUCCESS) {
 					busy = TRUE;
