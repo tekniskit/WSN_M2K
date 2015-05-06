@@ -57,16 +57,10 @@ implementation {
     
     		if(counter < 5000){
     			if (!busy) {
-					ApplicationMsg* msg = (ApplicationMsg*)(call Packet.getPayload(&pkt, sizeof (ApplicationMsg)));
+					ApplicationMsg112* msg = (ApplicationMsg112*)(call Packet.getPayload(&pkt, sizeof (ApplicationMsg112)));
 					msg->nodeid = TOS_NODE_ID;
-					msg->size = sizeof(ApplicationMsg);
-					msg->test = 23;
-					msg->test1 = 24;
-					msg->test2 = 25;
-					msg->test3 = 26;
-					msg->test4 = 27;
 				}			
-				if (call AMSend.send(AM_BROADCAST_ADDR, &pkt, sizeof(ApplicationMsg)) == SUCCESS) {
+				if (call AMSend.send(AM_BROADCAST_ADDR, &pkt, sizeof(ApplicationMsg112)) == SUCCESS) {
 					busy = TRUE;
 					counter++;
 				}
