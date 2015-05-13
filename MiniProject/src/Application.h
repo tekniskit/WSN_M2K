@@ -7,7 +7,7 @@ enum {
 
  typedef nx_struct ApplicationMsg112 {
   nx_uint64_t nodeid;
-  nx_uint64_t a1;
+  nx_uint64_t rssi;
   nx_uint64_t a2;
   nx_uint64_t a3;
   nx_uint64_t a4;
@@ -25,7 +25,7 @@ enum {
 
  typedef nx_struct ApplicationMsg56 {
   nx_uint64_t nodeid;
-  nx_uint64_t a1;
+  nx_uint64_t rssi;
   nx_uint64_t a2;
   nx_uint64_t a3;
   nx_uint64_t a4;
@@ -35,7 +35,7 @@ enum {
 
  typedef nx_struct ApplicationMsg24 {
   nx_uint64_t nodeid;
-  nx_uint64_t a1;
+  nx_uint64_t rssi;
   nx_uint64_t a2;
 } ApplicationMsg24;
 
