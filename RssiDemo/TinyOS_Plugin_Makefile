@@ -35,6 +35,15 @@
 # ----------------------------------------------------------------
 
 
+# CHANNEL
+CFLAGS += -DCC2420_DEF_CHANNEL=12
+
+# TRANSMIT POWER (3 = -25dBm, 11 = -10dBm)
+CFLAGS += -DCC2420_DEF_RFPOWER=31
+
+# DATA LENGTH
+CFLAGS += -DTOSH_DATA_LENGTH=130
+
 
 # The environment variable COMPONENT is set automatically by the
 # plugin.

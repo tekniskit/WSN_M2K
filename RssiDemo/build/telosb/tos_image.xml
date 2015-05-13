@@ -1,11 +1,11 @@
 <tos_image>
   <ident>
-    <uidhash>050F1C31L</uidhash>
+    <uidhash>405F7080L</uidhash>
     <hostname>ubuntu</hostname>
     <username>tinyos</username>
-    <appname>/home/tinyos/wo</appname>
+    <appname>/home/tinyos/De</appname>
     <userhash>29AC8746L</userhash>
-    <timestamp>555349FCL</timestamp>
+    <timestamp>55534ECAL</timestamp>
     <deluge_support>no</deluge_support>
     <platform>telosb</platform>
   </ident>

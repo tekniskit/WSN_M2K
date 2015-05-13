@@ -53,8 +53,8 @@ public class RssiDemo implements MessageListener {
   public void messageReceived(int to, Message message) {
     RssiMsg msg = (RssiMsg) message;
     int source = message.getSerialPacket().get_header_src();
-    System.out.println("Rssi Message received from node " + source + 
-		       ": Rssi = " +  msg.get_rssi() + ": Lqi = " +msg.get_lqi());
+    int length = message.dataLength();
+    System.out.println(source + ";" +length + ";" + msg.get_rssi() + ";" +msg.get_lqi()+";"msg.get_counter()));
   }
   
   private static void usage() {

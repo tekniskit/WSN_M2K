@@ -43,6 +43,9 @@ enum {
 typedef nx_struct RssiMsg{
   nx_int16_t rssi;
   nx_int16_t lqi;
+  nx_int16_t channel;
+  nx_int16_t power;
+  nx_int16_t counter;
 } RssiMsg;
 
 #endif //RSSIDEMOMESSAGES_H__

@@ -39,11 +39,15 @@
 module SendingMoteC {
   uses interface Boot;
   uses interface Timer<TMilli> as SendTimer;
+  uses interface Packet;
+  uses interface AMPacket;
   
   uses interface AMSend as RssiMsgSend;
   uses interface SplitControl as RadioControl;
 } implementation {
   message_t msg;
+  uint16_t counter = 0;
+  bool busy = FALSE;
   
   event void Boot.booted(){
     call RadioControl.start();
@@ -57,8 +61,31 @@ module SendingMoteC {
 
 
   event void SendTimer.fired(){
-    call RssiMsgSend.send(AM_BROADCAST_ADDR, &msg, sizeof(RssiMsg));    
+  	
+  	if(counter < 5000)
+  	{
+  		if(!busy)
+  		{
+  			RssiMsg* message = (RssiMsg*)(call Packet.getPayload(&msg, sizeof(RssiMsg)));
+  			message->channel=12;
+  			message->power=3;
+  			message->counter=counter;
+  		}
+  		if(call RssiMsgSend.send(AM_BROADCAST_ADDR, &msg, sizeof(RssiMsg)) == SUCCESS)
+  		{
+  			busy = TRUE;
+  			counter++;
+  		}
+  		
+  		
+  		
+  	}    
   }
 
-  event void RssiMsgSend.sendDone(message_t *m, error_t error){}
+  event void RssiMsgSend.sendDone(message_t *m, error_t error){
+  	if(&msg == m)
+  	{
+  		busy = FALSE;
+  	}	
+  }
 }
