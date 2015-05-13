@@ -7,12 +7,12 @@
 public class RssiMsg extends net.tinyos.message.Message {
 
     /** The default size of this message type in bytes. */
-    public static final int DEFAULT_MESSAGE_SIZE = 4;
+    public static final int DEFAULT_MESSAGE_SIZE = 10;
 
     /** The Active Message type associated with this message. */
     public static final int AM_TYPE = 10;
 
-    /** Create a new RssiMsg of size 4. */
+    /** Create a new RssiMsg of size 10. */
     public RssiMsg() {
         super(DEFAULT_MESSAGE_SIZE);
         amTypeSet(AM_TYPE);
@@ -89,6 +89,15 @@ public class RssiMsg extends net.tinyos.message.Message {
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
         s += "  [lqi=0x"+Long.toHexString(get_lqi())+"]\n";
+      } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
+      try {
+        s += "  [channel=0x"+Long.toHexString(get_channel())+"]\n";
+      } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
+      try {
+        s += "  [power=0x"+Long.toHexString(get_power())+"]\n";
+      } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
+      try {
+        s += "  [counter=0x"+Long.toHexString(get_counter())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       return s;
     }
@@ -218,6 +227,195 @@ public class RssiMsg extends net.tinyos.message.Message {
      * Return the size, in bits, of the field 'lqi'
      */
     public static int sizeBits_lqi() {
+        return 16;
+    }
+
+    /////////////////////////////////////////////////////////
+    // Accessor methods for field: channel
+    //   Field type: short, signed
+    //   Offset (bits): 32
+    //   Size (bits): 16
+    /////////////////////////////////////////////////////////
+
+    /**
+     * Return whether the field 'channel' is signed (true).
+     */
+    public static boolean isSigned_channel() {
+        return true;
+    }
+
+    /**
+     * Return whether the field 'channel' is an array (false).
+     */
+    public static boolean isArray_channel() {
+        return false;
+    }
+
+    /**
+     * Return the offset (in bytes) of the field 'channel'
+     */
+    public static int offset_channel() {
+        return (32 / 8);
+    }
+
+    /**
+     * Return the offset (in bits) of the field 'channel'
+     */
+    public static int offsetBits_channel() {
+        return 32;
+    }
+
+    /**
+     * Return the value (as a short) of the field 'channel'
+     */
+    public short get_channel() {
+        return (short)getSIntBEElement(offsetBits_channel(), 16);
+    }
+
+    /**
+     * Set the value of the field 'channel'
+     */
+    public void set_channel(short value) {
+        setSIntBEElement(offsetBits_channel(), 16, value);
+    }
+
+    /**
+     * Return the size, in bytes, of the field 'channel'
+     */
+    public static int size_channel() {
+        return (16 / 8);
+    }
+
+    /**
+     * Return the size, in bits, of the field 'channel'
+     */
+    public static int sizeBits_channel() {
+        return 16;
+    }
+
+    /////////////////////////////////////////////////////////
+    // Accessor methods for field: power
+    //   Field type: short, signed
+    //   Offset (bits): 48
+    //   Size (bits): 16
+    /////////////////////////////////////////////////////////
+
+    /**
+     * Return whether the field 'power' is signed (true).
+     */
+    public static boolean isSigned_power() {
+        return true;
+    }
+
+    /**
+     * Return whether the field 'power' is an array (false).
+     */
+    public static boolean isArray_power() {
+        return false;
+    }
+
+    /**
+     * Return the offset (in bytes) of the field 'power'
+     */
+    public static int offset_power() {
+        return (48 / 8);
+    }
+
+    /**
+     * Return the offset (in bits) of the field 'power'
+     */
+    public static int offsetBits_power() {
+        return 48;
+    }
+
+    /**
+     * Return the value (as a short) of the field 'power'
+     */
+    public short get_power() {
+        return (short)getSIntBEElement(offsetBits_power(), 16);
+    }
+
+    /**
+     * Set the value of the field 'power'
+     */
+    public void set_power(short value) {
+        setSIntBEElement(offsetBits_power(), 16, value);
+    }
+
+    /**
+     * Return the size, in bytes, of the field 'power'
+     */
+    public static int size_power() {
+        return (16 / 8);
+    }
+
+    /**
+     * Return the size, in bits, of the field 'power'
+     */
+    public static int sizeBits_power() {
+        return 16;
+    }
+
+    /////////////////////////////////////////////////////////
+    // Accessor methods for field: counter
+    //   Field type: short, signed
+    //   Offset (bits): 64
+    //   Size (bits): 16
+    /////////////////////////////////////////////////////////
+
+    /**
+     * Return whether the field 'counter' is signed (true).
+     */
+    public static boolean isSigned_counter() {
+        return true;
+    }
+
+    /**
+     * Return whether the field 'counter' is an array (false).
+     */
+    public static boolean isArray_counter() {
+        return false;
+    }
+
+    /**
+     * Return the offset (in bytes) of the field 'counter'
+     */
+    public static int offset_counter() {
+        return (64 / 8);
+    }
+
+    /**
+     * Return the offset (in bits) of the field 'counter'
+     */
+    public static int offsetBits_counter() {
+        return 64;
+    }
+
+    /**
+     * Return the value (as a short) of the field 'counter'
+     */
+    public short get_counter() {
+        return (short)getSIntBEElement(offsetBits_counter(), 16);
+    }
+
+    /**
+     * Set the value of the field 'counter'
+     */
+    public void set_counter(short value) {
+        setSIntBEElement(offsetBits_counter(), 16, value);
+    }
+
+    /**
+     * Return the size, in bytes, of the field 'counter'
+     */
+    public static int size_counter() {
+        return (16 / 8);
+    }
+
+    /**
+     * Return the size, in bits, of the field 'counter'
+     */
+    public static int sizeBits_counter() {
         return 16;
     }
 
