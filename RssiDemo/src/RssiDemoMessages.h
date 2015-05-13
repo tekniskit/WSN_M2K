@@ -37,15 +37,45 @@
 #define RSSIDEMOMESSAGES_H__
 
 enum {
-  AM_RSSIMSG = 10
+  AM_RSSIMSG = 112
 };
 
+//PAYLOAD 32 Bytes
+//typedef nx_struct RssiMsg{
+//  nx_int16_t rssi;
+//  nx_int16_t lqi;
+//  nx_int16_t channel;
+//  nx_int16_t power;
+//  nx_int16_t counter;
+//  nx_int64_t fill1;
+//  nx_int64_t fill2;
+//  nx_int32_t fill3;
+//  nx_int16_t fill4;
+//} RssiMsg;
+
+
+//PAYLOAD 112 Bytes
 typedef nx_struct RssiMsg{
   nx_int16_t rssi;
   nx_int16_t lqi;
   nx_int16_t channel;
   nx_int16_t power;
   nx_int16_t counter;
+  nx_int64_t fill1;
+  nx_int64_t fill2;
+  nx_int64_t fill3;
+  nx_int64_t fill4;
+  nx_int64_t fill5;
+  nx_int64_t fill6;
+  nx_int64_t fill7;
+  nx_int64_t fill8;
+  nx_int64_t fill9;
+  nx_int64_t fill10;
+  nx_int64_t fill11;
+  nx_int64_t fill12;
+  nx_int32_t fill13;
+  nx_int16_t fill14;
 } RssiMsg;
+
 
 #endif //RSSIDEMOMESSAGES_H__
