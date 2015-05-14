@@ -48,4 +48,7 @@ configuration SendingMoteAppC {
   
   App.RssiMsgSend -> RssiMsgSender;
   App.RadioControl -> ActiveMessageC;
+  
+  App.Packet -> RssiMsgSender;
+  App.AMPacket -> RssiMsgSender;
 }

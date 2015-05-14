@@ -7,6 +7,9 @@ MiniProject/.cache/
 RssiDemo/build/
 RssiDemo/.cache/
 RssiDemo/src/build/
+RssiDemo/src/java/RssiDemo.class
+RssiDemo/src/java/RssiMsg.class
+RssiDemo/src/java/RssiMsg.java
 
 # Object files
 *.o
