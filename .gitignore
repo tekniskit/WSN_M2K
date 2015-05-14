@@ -4,6 +4,9 @@ MoteSender/.cache/
 MiniProject/src/build/
 MiniProject/build/
 MiniProject/.cache/
+RssiDemo/build/
+RssiDemo/.cache/
+RssiDemo/src/build/
 
 # Object files
 *.o
